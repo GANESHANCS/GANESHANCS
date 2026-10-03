@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 260" width="100%" height="260">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090D16"/>
+      <stop offset="50%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#070A12"/>
+    </linearGradient>
+
+    <!-- Border Glow Gradient -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.8"/>
+    </linearGradient>
+
+    <!-- Title Gradient -->
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="50%" stop-color="#60A5FA"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="gridPattern" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#1E293B" stroke-width="0.7" opacity="0.6"/>
+    </pattern>
+
+    <style>
+      .mono { font-family: 'SF Mono', Consolas, 'Liberation Mono', Menlo, Courier, monospace; }
+      .sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+      
+      /* Glowing Pulse */
+      @keyframes pulse {
+        0%, 100% { opacity: 0.9; transform: scale(1); }
+        50% { opacity: 0.4; transform: scale(0.92); }
+      }
+      .pulsing-dot {
+        transform-origin: 785px 33px;
+        animation: pulse 2.4s ease-in-out infinite;
+      }
+
+      /* Role Rotator Keyframes */
+      @keyframes cycleRole1 {
+        0% { opacity: 0; transform: translateY(6px); }
+        3% { opacity: 1; transform: translateY(0); }
+        22% { opacity: 1; transform: translateY(0); }
+        25% { opacity: 0; transform: translateY(-6px); }
+        100% { opacity: 0; transform: translateY(-6px); }
+      }
+      @keyframes cycleRole2 {
+        0%, 25% { opacity: 0; transform: translateY(6px); }
+        28% { opacity: 1; transform: translateY(0); }
+        47% { opacity: 1; transform: translateY(0); }
+        50% { opacity: 0; transform: translateY(-6px); }
+        100% { opacity: 0; transform: translateY(-6px); }
+      }
+      @keyframes cycleRole3 {
+        0%, 50% { opacity: 0; transform: translateY(6px); }
+        53% { opacity: 1; transform: translateY(0); }
+        72% { opacity: 1; transform: translateY(0); }
+        75% { opacity: 0; transform: translateY(-6px); }
+        100% { opacity: 0; transform: translateY(-6px); }
+      }
+      @keyframes cycleRole4 {
+        0%, 75% { opacity: 0; transform: translateY(6px); }
+        78% { opacity: 1; transform: translateY(0); }
+        97% { opacity: 1; transform: translateY(0); }
+        100% { opacity: 0; transform: translateY(-6px); }
+      }
+
+      .role-1 { animation: cycleRole1 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+      .role-2 { animation: cycleRole2 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+      .role-3 { animation: cycleRole3 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+      .role-4 { animation: cycleRole4 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+    </style>
+  </defs>
+
+  <!-- Card Background -->
+  <rect x="2" y="2" width="846" height="256" rx="14" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle Background Grid -->
+  <rect x="2" y="2" width="846" height="256" rx="14" fill="url(#gridPattern)"/>
+
+  <!-- Border Outline -->
+  <rect x="2" y="2" width="846" height="256" rx="14" fill="none" stroke="url(#borderGrad)" stroke-width="1.5"/>
+
+  <!-- Window Header / Terminal Bar -->
+  <g transform="translate(30, 24)">
+    <!-- Terminal Dots -->
+    <circle cx="8" cy="8" r="5" fill="#EF4444" opacity="0.85"/>
+    <circle cx="26" cy="8" r="5" fill="#F59E0B" opacity="0.85"/>
+    <circle cx="44" cy="8" r="5" fill="#10B981" opacity="0.85"/>
+    <text x="65" y="12" fill="#64748B" font-size="12" class="mono">ganeshan.systems · bash</text>
+  </g>
+
+  <!-- Status Indicator (Top Right) -->
+  <g transform="translate(640, 24)">
+    <rect x="0" y="0" width="175" height="26" rx="13" fill="#1E293B" opacity="0.7" stroke="#334155" stroke-width="1"/>
+    <circle cx="16" cy="13" r="4.5" fill="#10B981" class="pulsing-dot"/>
+    <text x="28" y="17" fill="#E2E8F0" font-size="11" class="sans" font-weight="500">Shipping Production Code</text>
+  </g>
+
+  <!-- Main Hero Title -->
+  <g transform="translate(32, 102)">
+    <text x="0" y="0" fill="url(#titleGrad)" font-size="44" font-weight="800" class="sans" letter-spacing="-0.03em">
+      GANESHAN
+    </text>
+  </g>
+
+  <!-- Subtitle Tagline -->
+  <g transform="translate(33, 134)">
+    <text x="0" y="0" fill="#94A3B8" font-size="16" font-weight="500" class="sans">
+      Software Engineer · Systems Builder
+    </text>
+  </g>
+
+  <!-- Dynamic Animated Role Bar -->
+  <g transform="translate(33, 178)">
+    <!-- Terminal Prompt Symbol -->
+    <text x="0" y="0" fill="#06B6D4" font-size="18" font-weight="700" class="mono">&gt;</text>
+    
+    <!-- Animated Role 1 -->
+    <g class="role-1">
+      <text x="20" y="0" fill="#F1F5F9" font-size="18" font-weight="600" class="mono">
+        Software Engineer
+      </text>
+    </g>
+    
+    <!-- Animated Role 2 -->
+    <g class="role-2">
+      <text x="20" y="0" fill="#38BDF8" font-size="18" font-weight="600" class="mono">
+        Full-Stack Systems
+      </text>
+    </g>
+
+    <!-- Animated Role 3 -->
+    <g class="role-3">
+      <text x="20" y="0" fill="#818CF8" font-size="18" font-weight="600" class="mono">
+        Machine Learning
+      </text>
+    </g>
+
+    <!-- Animated Role 4 -->
+    <g class="role-4">
+      <text x="20" y="0" fill="#C084FC" font-size="18" font-weight="600" class="mono">
+        Decision Intelligence
+      </text>
+    </g>
+  </g>
+
+  <!-- Bottom Tech Pillars Bar -->
+  <g transform="translate(32, 222)">
+    <rect x="0" y="0" width="786" height="26" rx="6" fill="#0F172A" opacity="0.6"/>
+    <text x="14" y="17" fill="#64748B" font-size="11" font-weight="600" class="mono">STACK</text>
+    <text x="65" y="17" fill="#38BDF8" font-size="11" class="mono">FastAPI</text>
+    <text x="122" y="17" fill="#475569" font-size="11" class="mono">·</text>
+    <text x="135" y="17" fill="#818CF8" font-size="11" class="mono">React</text>
+    <text x="178" y="17" fill="#475569" font-size="11" class="mono">·</text>
+    <text x="191" y="17" fill="#38BDF8" font-size="11" class="mono">TypeScript</text>
+    <text x="265" y="17" fill="#475569" font-size="11" class="mono">·</text>
+    <text x="278" y="17" fill="#A78BFA" font-size="11" class="mono">XGBoost</text>
+    <text x="338" y="17" fill="#475569" font-size="11" class="mono">·</text>
+    <text x="351" y="17" fill="#38BDF8" font-size="11" class="mono">LightGBM</text>
+    <text x="418" y="17" fill="#475569" font-size="11" class="mono">·</text>
+    <text x="431" y="17" fill="#818CF8" font-size="11" class="mono">SHAP</text>
+    <text x="472" y="17" fill="#475569" font-size="11" class="mono">·</text>
+    <text x="485" y="17" fill="#38BDF8" font-size="11" class="mono">Docker</text>
+    <text x="536" y="17" fill="#475569" font-size="11" class="mono">·</text>
+    <text x="549" y="17" fill="#818CF8" font-size="11" class="mono">PostgreSQL</text>
+  </g>
+</svg>
